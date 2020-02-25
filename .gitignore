@@ -1,0 +1,13 @@
+ambiente/
+
+__pycache__
+
+*.*~
+
+*.pyc
+
+.idea
+
+htmlcov/*
+
+media/*
