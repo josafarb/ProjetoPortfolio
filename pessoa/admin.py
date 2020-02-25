@@ -7,4 +7,4 @@ from django.contrib import admin
 
 @admin.register(Pessoa)
 class PessoaAdmin(admin.ModelAdmin):
-    list_display = ('id', 'nome', 'sexo', 'dataNascimento')
+    list_display = ('id', 'nome', 'sexo', 'dataNascimento','foto')
