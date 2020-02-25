@@ -23,6 +23,7 @@ class Pessoa(models.Model):
     biografia = models.TextField('Sobre mim ')
     foto = StdImageField('Foto', upload_to='pessoa', variations={'tumb': {'width': 524, 'height': 566, 'crop': True}})
 
+
     def __str__(self):
         return self.nome;
 
