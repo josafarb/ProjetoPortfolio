@@ -19,12 +19,8 @@ class IndexView(TemplateView):
         if (p is not None):
             context['pessoa'] = p
             context['habilidade'] = Habilidade.objects.filter(pessoa=p.id, ativo=True)
-            context['formacao'] = FormacaoAcademica.objects.filter(pessoa=p.id, ativo=True).order_by('inicio')
-            context['experiencia'] = ExperienciaProfissiona.objects.filter(pessoa=p.id, ativo=True).order_by('inicio')
+            context['formacao'] = FormacaoAcademica.objects.filter(pessoa=p.id, ativo=True).order_by('inicio','fim')
+            context['experiencia'] = ExperienciaProfissiona.objects.filter(pessoa=p.id, ativo=True).order_by('inicio','fim')
+            context['trabalho'] = TrabalhosRealizados.objects.filter(pessoa=p.id, ativo=True).order_by('dataCriacao')
 
-            t =  TrabalhosRealizados.objects.filter(pessoa=p.id, ativo=True).order_by('dataCriacao')
-            context['trabalho'] = t
-            for i in t:
-                print('---')
-                print(t)
         return context
