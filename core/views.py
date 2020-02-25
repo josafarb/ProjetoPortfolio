@@ -5,6 +5,7 @@ from .validador import *
 from django.views.generic import TemplateView
 from pessoa.models import Pessoa
 from habilidade.models import  Habilidade
+from formacaoAcademica.models import FormacaoAcademica
 
 
 class IndexView(TemplateView):
@@ -16,5 +17,6 @@ class IndexView(TemplateView):
         if(p is not None):
             context['pessoa'] = p
             context['habilidade'] =  Habilidade.objects.filter(pessoa = p.id, ativo = True)
+            context['formacao'] = FormacaoAcademica.objects.filter(pessoa = p.id, ativo= True).order_by('inicio')
         return context
 
