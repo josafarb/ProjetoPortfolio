@@ -5,7 +5,7 @@ from pessoa.models import  Pessoa
 # Create your models here.
 
 class ExperienciaProfissiona(models.Model):
-    empresa = models.CharField('Emresa', max_length=100)
+    empresa = models.CharField('Empresa', max_length=100)
     inicio = models.DateField('Início')
     fim = models.DateField('Fim',blank=True,null=True)
     descricao = models.TextField('Descrição', max_length=500)

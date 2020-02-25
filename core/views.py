@@ -7,6 +7,7 @@ from pessoa.models import Pessoa
 from habilidade.models import Habilidade
 from formacaoAcademica.models import FormacaoAcademica
 from experienciaProfissional.models import ExperienciaProfissiona
+from trabalhosRealizados.models import TrabalhosRealizados
 
 
 class IndexView(TemplateView):
@@ -20,4 +21,10 @@ class IndexView(TemplateView):
             context['habilidade'] = Habilidade.objects.filter(pessoa=p.id, ativo=True)
             context['formacao'] = FormacaoAcademica.objects.filter(pessoa=p.id, ativo=True).order_by('inicio')
             context['experiencia'] = ExperienciaProfissiona.objects.filter(pessoa=p.id, ativo=True).order_by('inicio')
+
+            t =  TrabalhosRealizados.objects.filter(pessoa=p.id, ativo=True).order_by('dataCriacao')
+            context['trabalho'] = t
+            for i in t:
+                print('---')
+                print(t)
         return context
