@@ -1,3 +1,4 @@
+from django.views.decorators.csrf import csrf_exempt
 from rest_framework.viewsets import ModelViewSet
 from pessoa.models import Pessoa
 from .serializers import PessoaSerializer

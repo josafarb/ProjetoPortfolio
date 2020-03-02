@@ -20,9 +20,11 @@ from django.conf.urls.static import static
 from django.conf import settings
 from rest_framework import routers
 from pessoa.api.viewsets import PessoaViewSet
+from habilidade.api.viewsets import HabilidadeViewSet
 
 router = routers.DefaultRouter()
 router.register('pessoa', PessoaViewSet)
+router.register('habilidade', HabilidadeViewSet)
 
 urlpatterns = [
     path('api/', include(router.urls)),

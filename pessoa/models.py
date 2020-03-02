@@ -21,7 +21,7 @@ class Pessoa(models.Model):
     email = models.EmailField('Email', max_length= 100)
     tempoExperiencia = models.CharField('Tempo experiência', max_length= 100)
     biografia = models.TextField('Sobre mim ')
-    foto = StdImageField('Foto', upload_to='pessoa', variations={'tumb': {'width': 524, 'height': 566, 'crop': True}})
+    foto = StdImageField('Foto', upload_to='pessoa', variations={'tumb': {'width': 524, 'height': 566, 'crop': True}}, null= True, blank= True)
 
 
     def __str__(self):
