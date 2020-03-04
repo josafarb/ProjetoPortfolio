@@ -24,7 +24,7 @@ from habilidade.api.viewsets import HabilidadeViewSet
 
 router = routers.DefaultRouter()
 router.register('pessoa', PessoaViewSet)
-router.register('habilidade', HabilidadeViewSet)
+router.register('habilidade', HabilidadeViewSet,basename= 'Habilidade')
 
 urlpatterns = [
     path('api/', include(router.urls)),
