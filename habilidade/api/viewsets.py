@@ -1,5 +1,8 @@
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import status
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import *
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 from habilidade.models import Habilidade
@@ -11,6 +14,12 @@ class HabilidadeViewSet(ModelViewSet):
 
     # Especifica quais métodos o endpoint deve aceitar, se não especificar nada aceita todos (os parâmetros devem ser especifiados em minusculo)
     http_method_names = ['get', 'post','delete','update' ]
+
+
+    # Paara a autenticação funcionar devo passar no body o parâmetro Authorization e como valor  a palavra Token e o token
+    #permission_classes = (IsAuthenticated,)
+    permission_classes = (DjangoModelPermissions,)
+    authentication_classes = (TokenAuthentication,)
 
     # QUANDO O ATRIBUTO queryset NÃO ESTÁ DECLARADO, POSSO SOBRESCREVER A FUNÇÃO
     # get_queryset para  filtrar valores
